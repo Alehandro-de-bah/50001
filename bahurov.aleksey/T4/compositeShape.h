@@ -28,7 +28,7 @@ public:
 
     void addShape(std::unique_ptr<Shape> shape); // Добавление фигуры
 private:
-    std::vector<std::unique_ptr<Shape>> shapes_; // Вектор фигур (указатели на базовый класс Shape, чтобы хранить производные от него фигуры)
+    std::vector<std::unique_ptr<Shape>> shapes_; // Вектор фигур
     static constexpr const char* NAME_OF_FIGURE = "COMPOSITE"; // Название составной фигуры
 };
 

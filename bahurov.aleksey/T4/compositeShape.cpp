@@ -4,8 +4,9 @@
 #include <iostream>
 #include <limits>
 
-constexpr double MAX_DOUBLE = std::numeric_limits<double>::max(); // Заводим константы для максимального
-constexpr double MIN_DOUBLE = std::numeric_limits<double>::lowest(); // и минимального чисел типа double
+// Заводим константы для максимального и минимального чисел типа double
+constexpr double MAX_DOUBLE = std::numeric_limits<double>::max();
+constexpr double MIN_DOUBLE = std::numeric_limits<double>::lowest();
 
 void CompositeShape::addShape(std::unique_ptr<Shape> shape) // Добавление фигуры
 {
@@ -50,14 +51,14 @@ void CompositeShape::scale(double k) // Масштабирование сост�
     {
         throw IncorrectScale();
     }
-    Point centerOfCompositeShape = getCenter(); // Получаем центр составной фигуры
-    for (auto& shape : shapes_) // Проходимся по всем фигурам
+    Point centerOfCompositeShape = getCenter();
+    for (auto& shape : shapes_)
     {
-        Point centerOfShape = shape->getCenter(); // Получаем центр фигуры
-        double dx = centerOfShape.x_ - centerOfCompositeShape.x_; // Вычисляем смещение по x центра фигуры относительно центра составной фигуры
-        double dy = centerOfShape.y_ - centerOfCompositeShape.y_; // Аналогично для y
-        shape->move(dx * (k - 1), dy * (k - 1)); // Перемещаем фигуру
-        shape->scale(k); // Масштабируем саму фигуру в k раз
+        Point centerOfShape = shape->getCenter();
+        double dx = centerOfShape.x_ - centerOfCompositeShape.x_;
+        double dy = centerOfShape.y_ - centerOfCompositeShape.y_;
+        shape->move(dx * (k - 1), dy * (k - 1));
+        shape->scale(k);
     }
 }
 
@@ -84,7 +85,8 @@ void CompositeShape::printInfo() const // Вывод информайии о с�
     {
         StreamGuard guard(std::cout);
         std::cout << std::fixed << std::setprecision(2);
-        std::cout << "[" << getName() << ",\t(" << getCenter().x_ << ", " << getCenter().y_ << "),\t" << getArea() << ":" << std::endl;
+        std::cout << "[" << getName() << ",\t(" << getCenter().x_ << ", " << 
+            getCenter().y_ << "),\t" << getArea() << ":" << std::endl;
         for (const auto& shape : shapes_)
         {
             std::cout << " ";
