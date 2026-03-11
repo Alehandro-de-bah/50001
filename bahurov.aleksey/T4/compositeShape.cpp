@@ -35,7 +35,8 @@ Point CompositeShape::getCenter() const // Вычисление центра с�
     double maxX = MIN_DOUBLE;
     double maxY = MIN_DOUBLE;
 
-    for (const auto& shape : shapes_) {
+    for (const auto& shape : shapes_)
+    {
         Point center = shape->getCenter();
         minX = std::min(minX, center.x_);
         minY = std::min(minY, center.y_);
@@ -85,7 +86,7 @@ void CompositeShape::printInfo() const // Вывод информайии о с�
     {
         StreamGuard guard(std::cout);
         std::cout << std::fixed << std::setprecision(2);
-        std::cout << "[" << getName() << ",\t(" << getCenter().x_ << ", " << 
+        std::cout << "[" << getName() << ",\t(" << getCenter().x_ << ", " <<
             getCenter().y_ << "),\t" << getArea() << ":" << std::endl;
         for (const auto& shape : shapes_)
         {
