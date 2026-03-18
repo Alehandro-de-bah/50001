@@ -57,7 +57,7 @@ void CompositeShape::scale(double scaleFactor)
 void CompositeShape::printInfo(std::ostream& out) const
 {
     Point center = getCenter();
-    std::cout << std::setprecision(2) << getName() << ", (" << center.x_ << ", " << center.y_ << "), " << getArea() << ":\n";
+    std::cout << std::fixed << std::setprecision(2) << getName() << ", (" << center.x_ << ", " << center.y_ << "), " << getArea() << ":\n";
     for (auto& shapePtr : shapes_) {
         out << *shapePtr << ",\n";
     }

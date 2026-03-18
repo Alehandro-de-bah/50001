@@ -34,5 +34,5 @@ void Rectangle::scale(double scaleFactor)
 void Rectangle::printInfo(std::ostream& out) const
 {
     Point center = getCenter();
-    out << std::setprecision(2) << getName() << ", (" << center.x_ << ", " << center.y_ << "), " << getArea();
+    out << std::setprecision(2) << std::fixed << getName() << ", (" << center.x_ << ", " << center.y_ << "), " << getArea();
 }

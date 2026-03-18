@@ -19,8 +19,6 @@ int main() {
     Rectangle r1(3.0, 3.0, 7.0, 7.0);
     shapes.push_back(std::make_unique<CompositeShape>(c1, c2, r1));
 
-    std::cout << std::fixed << std::setprecision(2);
-
     std::cout << "Initial Shapes\n";
     for (const auto& shape : shapes) {
         std::cout << "[" << *shape << "]\n\n";
