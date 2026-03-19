@@ -9,7 +9,7 @@
 class Rectangle : public Shape {
 
     private:
-    
+
     Point topRightCorner_;
     Point bottomLeftCorner_;
 
@@ -28,11 +28,11 @@ class Rectangle : public Shape {
     /* МЕТОДЫ */
 
     virtual double getArea() const override;
-    virtual Point getCenter() const override; 
-    virtual void move(double newX, double newY) override; 
-    virtual void scale(double k) override; 
-    virtual const char* getName() const override; 
-    virtual void print() const override; 
+    virtual Point getCenter() const override;
+    virtual void move(double newX, double newY) override;
+    virtual void scale(double k) override;
+    virtual const char* getName() const override;
+    virtual void print() const override;
 
 
 };
