@@ -21,7 +21,7 @@ public:
     Square(Point bottomLeftCorner, double side) : bottomLeftCorner_(bottomLeftCorner), side_(side) {}
     ~Square() = default;
 
-    /* МЕТОДЫ */
+    /* МЕТОЫ */
     virtual double getArea() const override;
     virtual Point getCenter() const override; 
     virtual void move(double newX, double newY) override; 
@@ -31,3 +31,4 @@ public:
 };
 
 #endif
+
