@@ -11,11 +11,12 @@ private:
     double side_;
 
 public:
+
     /* КОНСТРУКТОРЫ */
-    Square(const Square& other) = delete;
-    Square(Square&& other) = delete;
-    Square& operator=(const Square& other) = delete;
-    Square& operator=(Square&& other) = delete;
+    Square(const Square& other) = default;
+    Square(Square&& other) = default;
+    Square& operator=(const Square& other) = default;
+    Square& operator=(Square&& other) = default;
 
     Square(Point bottomLeftCorner, double side) : bottomLeftCorner_(bottomLeftCorner), side_(side) {}
     ~Square() = default;

@@ -17,10 +17,10 @@ class Rectangle : public Shape {
 
     /* КОНСТРУКТОРЫ */
 
-    Rectangle(const Rectangle& other) = delete;
-    Rectangle(Rectangle&& other) = delete;
-    Rectangle& operator=(const Rectangle& other) = delete;
-    Rectangle& operator=(Rectangle&& other) = delete;
+    Rectangle(const Rectangle& other) = default;
+    Rectangle(Rectangle&& other) = default;
+    Rectangle& operator=(const Rectangle& other) = default;
+    Rectangle& operator=(Rectangle&& other) = default;
 
     Rectangle(Point top, Point bottom) : topRightCorner_(top), bottomLeftCorner_(bottom) {}
     ~Rectangle() = default;

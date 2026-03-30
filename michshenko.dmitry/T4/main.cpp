@@ -9,6 +9,9 @@
 
 int main() {
 
+    try
+    {
+
     std::vector<std::unique_ptr<Shape>> shapesVector;
 
     // Простые фигуры
@@ -27,21 +30,30 @@ int main() {
     shapesVector.push_back(std::move(compositeShape));
 
 
-std::cout<<"### print before scale ###"<<std::endl;
-   for (const auto& shape : shapesVector) {
-        shape->print();
-        std::cout <<std::endl;
+    std::cout<<"### print before scale ###"<<std::endl;
+        for (const auto& shape : shapesVector) {
+            shape->print();
+            std::cout <<std::endl;
     }
 
-for (size_t i = 0; i <shapesVector.size(); i++) {
-shapesVector[i]->scale(4.0);
-}
-
-std::cout<<"### print after scale ###"<<std::endl;
-   for (const auto& shape : shapesVector) {
-        shape->print();
-        std::cout <<std::endl;
+    for (const auto& shape : shapesVector) {
+        shape->scale(4.0);
     }
+
+    std::cout<<"### print after scale ###"<<std::endl;
+        for (const auto& shape : shapesVector) {
+            shape->print();
+            std::cout <<std::endl;
+    }
+
+
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return -1;
+    }
+
 
     return 0;
 }

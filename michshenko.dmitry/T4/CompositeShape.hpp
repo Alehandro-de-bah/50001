@@ -14,16 +14,14 @@ class CompositeShape : public Shape {
     public:
 
     /* КОНСТРУКТОРЫ */
-
     CompositeShape() = default;
     CompositeShape(const CompositeShape& rhs) = delete;
-    CompositeShape(CompositeShape&& rhs) = delete;
+    CompositeShape(CompositeShape&& rhs) = default;
     CompositeShape& operator=(const CompositeShape& rhs) = delete;
-    CompositeShape& operator=(CompositeShape&& rhs) = delete;
+    CompositeShape& operator=(CompositeShape&& rhs) = default;
     ~CompositeShape() = default;
 
     /* МЕТОДЫ */
-
     virtual double getArea() const override;
     virtual Point getCenter() const override;
     virtual void move(double newX, double newY) override;

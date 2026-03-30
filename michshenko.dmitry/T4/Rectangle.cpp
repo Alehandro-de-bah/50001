@@ -21,8 +21,8 @@ void Rectangle::move(double newX, double newY) {
 
 void Rectangle::scale(double k) {
 
-    if (k<0) {
-    throw std::runtime_error("incorrect k");
+    if (k < 0) {
+        throw std::runtime_error("incorrect k");
     }
 
     Point center = getCenter();
