@@ -5,7 +5,7 @@
 
 namespace kirsanov {
 
-    // PARSERS
+    //PARSERS
     bool parseULL(const std::string& str, unsigned long long& value)
     {
         if (str.size() < 3 || str.substr(str.size() - 3) != "ull")
@@ -38,7 +38,7 @@ namespace kirsanov {
         return true;
     }
 
-    //  INPUT
+    //INPUT
     std::istream& operator>>(std::istream& in, DataStruct& data)
     {
         std::string content;
