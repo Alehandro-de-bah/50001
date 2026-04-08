@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
-#include "DataStruct.h"
+#include "dataStruct.h"
 
 using namespace kirsanov;
 
