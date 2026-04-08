@@ -2,6 +2,7 @@
 #include "iofmtguard.h"
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 namespace kirsanov {
 
