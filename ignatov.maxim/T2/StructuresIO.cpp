@@ -37,14 +37,14 @@ namespace ignatov
         bool hasNumAfterDot = false;
         for (char c : number)
         {
-            if (!hasDot && isdigit(c)) {
+            if (!hasDot && std::isdigit(c)) {
                 hasNumBeforeDot = true;
             }
             if (c == '.')
             {
                 hasDot = true;
             }
-            if (hasDot && isdigit(c)) {
+            if (hasDot && std::isdigit(c)) {
                 hasNumAfterDot = true;
                 break;
             }
@@ -60,7 +60,7 @@ namespace ignatov
         char* end = nullptr;
         double value = std::strtod(number.c_str(), &end);
 
-        if (!end || (strcmp(end, "d") != 0 && strcmp(end, "D") != 0))
+        if (!end || (std::strcmp(end, "d") != 0 && std::strcmp(end, "D") != 0))
         {
             in.setstate(std::ios::failbit);
             return in;
@@ -78,23 +78,23 @@ namespace ignatov
             return in;
         }
 
-        std::string number;
-        std::getline(in, number, ':');
+        long long number;
+        in >> number;
         if (!in)
         {
             return in;
         }
 
-        char* end = nullptr;
-        long long value = std::strtoll(number.c_str(), &end, 10);
+        std::string literal;
+        std::getline(in, literal, ':');
 
-        if (!end || (strcmp(end, "ll") != 0 && strcmp(end, "LL") != 0))
+        if (literal != "ll" && literal != "LL")
         {
             in.setstate(std::ios::failbit);
             return in;
         }
 
-        dest.reference = value;
+        dest.reference = number;
         return in;
     }
 
