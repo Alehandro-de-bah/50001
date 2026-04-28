@@ -2,7 +2,7 @@
 
 namespace bahurov
 {
-    // Конструктор (сохраняет текущее состояние)
+    //  онструктор (сохран¤ет текущее состо¤ние)
     iofmtguard::iofmtguard(std::basic_ios<char>& s) :
         s_(s),
         width_(s.width()),
@@ -11,7 +11,7 @@ namespace bahurov
         fmt_(s.flags())
     {}
 
-    // Деструктор (восстанавливает состояние)
+    // ƒеструктор (восстанавливает состо¤ние)
     iofmtguard::~iofmtguard()
     {
         s_.width(width_);

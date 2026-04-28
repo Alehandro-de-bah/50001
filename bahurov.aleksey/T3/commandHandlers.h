@@ -10,58 +10,58 @@
 
 namespace bahurov
 {
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґ
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ AREA
+    // Ћбработка команд
+    // Ћбработка команды AREA
     void handleArea(const std::vector<Polygon>& polygons, std::istream& in);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MAX
+    // Ћбработка команды MAX
     void handleMax(const std::vector<Polygon>& polygons, std::istream& in);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MIN
+    // Ћбработка команды MIN
     void handleMin(const std::vector<Polygon>& polygons, std::istream& in);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ COUNT
+    // Ћбработка команды COUNT
     void handleCount(const std::vector<Polygon>& polygons, std::istream& in);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ LESSAREA
+    // Ћбработка команды LESSAREA
     void handleLessArea(const std::vector<Polygon>& polygons, std::istream& in);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ INTERSECTIONS
+    // Ћбработка команды INTERSECTIONS
     void handleIntersections(const std::vector<Polygon>& polygons, std::istream& in);
 
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґ СЃ РєРѕРЅРєСЂРµС‚РЅС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ AREA EVEN
+    // Ћбработка команд с конкретными параметрами
+    // Ћбработка команды AREA EVEN
     void handleAreaEven(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ AREA ODD
+    // Ћбработка команды AREA ODD
     void handleAreaOdd(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ AREA MEAN
+    // Ћбработка команды AREA MEAN
     void handleAreaMean(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ AREA <num-of-vertexes>
+    // Ћбработка команды AREA <num-of-vertexes>
     void handleAreaNumOfVertexes(const std::vector<Polygon>& polygons, const std::string& parameter);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MAX AREA
+    // Ћбработка команды MAX AREA
     void handleMaxArea(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MAX <num-of-vertexes>
+    // Ћбработка команды MAX <num-of-vertexes>
     void handleMaxVertexes(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MIN AREA
+    // Ћбработка команды MIN AREA
     void handleMinArea(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ MIN <num-of-vertexes>
+    // Ћбработка команды MIN <num-of-vertexes>
     void handleMinVertexes(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ COUNT EVEN
+    // Ћбработка команды COUNT EVEN
     void handleCountEven(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ COUNT ODD
+    // Ћбработка команды COUNT ODD
     void handleCountOdd(const std::vector<Polygon>& polygons);
 
-    // РћР±СЂР°Р±РѕС‚РєР° РєРѕРјР°РЅРґС‹ COUNT <num-of-vertexes>
+    // Ћбработка команды COUNT <num-of-vertexes>
     void handleCountNumOfVertexes(const std::vector<Polygon>& polygons, const std::string& parameter);
 }
 

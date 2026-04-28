@@ -30,7 +30,7 @@ namespace bahurov
             }
         );
 
-        if (in)
+        if (in && input.points.size() == vertexes)
         {
             polygon = std::move(input);
         }

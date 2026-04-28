@@ -46,6 +46,12 @@ namespace bahurov
         {
             size_t n = std::stoull(parameter);
 
+            if (n < 3)
+            {
+                std::cout << INVALID_COMMAND << '\n';
+                return;
+            }
+
             double sum = std::accumulate(polygons.begin(), polygons.end(), 0.0,
                 [n](double acc, const Polygon& p)
                 {
@@ -97,7 +103,7 @@ namespace bahurov
         std::cout << getArea(*it) << '\n';
     }
 
-    // Обработка команды MAX <num-of-vertexes>
+    // Обработка команды MAX VERTEXES
     void handleMaxVertexes(const std::vector<Polygon>& polygons)
     {
         auto it = std::max_element(polygons.begin(), polygons.end(),
@@ -114,6 +120,7 @@ namespace bahurov
         if (polygons.empty())
         {
             std::cout << INVALID_COMMAND << '\n';
+            in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return;
         }
 
@@ -147,7 +154,7 @@ namespace bahurov
         std::cout << getArea(*it) << '\n';
     }
 
-    // Обработка команды MIN <num-of-vertexes>
+    // Обработка команды MIN VERTEXES
     void handleMinVertexes(const std::vector<Polygon>& polygons)
     {
         auto it = std::min_element(polygons.begin(), polygons.end(),
@@ -164,6 +171,7 @@ namespace bahurov
         if (polygons.empty())
         {
             std::cout << INVALID_COMMAND << '\n';
+            in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return;
         }
 
@@ -208,6 +216,13 @@ namespace bahurov
         try
         {
             size_t n = std::stoull(parameter);
+
+            if (n < 3)
+            {
+                std::cout << INVALID_COMMAND << '\n';
+                return;
+            }
+
             auto count = std::count_if(polygons.begin(), polygons.end(),
                 [n](const Polygon& p) { return p.points.size() == n; });
             std::cout << count << '\n';
@@ -243,7 +258,7 @@ namespace bahurov
     {
         Polygon target;
         in >> target;
-        if (in)
+        if (in && target.points.size() >= 3)
         {
             double targetArea = getArea(target);
             auto count = std::count_if(polygons.begin(), polygons.end(),
@@ -263,7 +278,7 @@ namespace bahurov
     {
         Polygon target;
         in >> target;
-        if (in)
+        if (in && target.points.size() >= 3)
         {
             auto count = std::count_if(polygons.begin(), polygons.end(),
                 [&target](const Polygon& p) { return arePolygonsIntersecting(p, target); });
