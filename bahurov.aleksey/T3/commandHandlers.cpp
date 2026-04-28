@@ -45,7 +45,7 @@ namespace bahurov
         try
         {
             size_t n = std::stoull(parameter);
-       
+
             double sum = std::accumulate(polygons.begin(), polygons.end(), 0.0,
                 [n](double acc, const Polygon& p)
                 {

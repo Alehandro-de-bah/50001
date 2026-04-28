@@ -2,7 +2,7 @@
 
 namespace bahurov
 {
-    // Перегрузка оператора ввода для структуры Point
+    // Перегрузка оператора ввода для структуры Polygon
     std::istream& operator>>(std::istream& in, Polygon& polygon)
     {
         std::istream::sentry sentry(in);
@@ -19,15 +19,15 @@ namespace bahurov
             in.setstate(std::ios::failbit);
             return in;
         }
-        
+
         Polygon input;
         std::generate_n(std::back_inserter(input.points), vertexes,
-                [&in]()
-                {
-                    Point point;
-                    in >> DelimetrIO{ ' ' } >> point;
-                    return point;
-                }
+            [&in]()
+            {
+                Point point;
+                in >> DelimetrIO{ ' ' } >> point;
+                return point;
+            }
         );
 
         if (in)
