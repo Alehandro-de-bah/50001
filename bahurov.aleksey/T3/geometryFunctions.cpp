@@ -34,6 +34,28 @@ namespace bahurov
         return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
     }
 
+    // Содержит ли полигон точку (метод луча)
+    bool isPointInPolygon(const Polygon& polygon, const Point& point)
+    {
+        size_t n = polygon.points.size();
+        bool isInside = false;
+
+        for (size_t i = 0, j = n - 1; i < n; j = i++)
+        {
+            const Point& pi = polygon.points[i]; // Текущая вершина
+            const Point& pj = polygon.points[j]; // Предыдущая вершина
+
+            // Проверка пересечения луча из точки вправо с ребром многоугольника
+            if (((pi.y > point.y) != (pj.y > point.y)) &&
+                (point.x < (pj.x - pi.x) * (point.y - pi.y) / static_cast<double>(pj.y - pi.y) + pi.x))
+            {
+                isInside = !isInside;
+            }
+        }
+
+        return isInside;
+    }
+
     // Лежит ли точка q на отрезке pr, если точки p, q, r коллинеарны
     bool isOnSegment(const Point& p, const Point& q, const Point& r)
     {
@@ -87,12 +109,30 @@ namespace bahurov
             {
                 const Point& b1 = b.points[j];
                 const Point& b2 = b.points[(j + 1) % m];
+                // Проверяем, пересекаются ли две стороны a1a2 и b1b2
                 if (areSegmentsIntersecting(a1, a2, b1, b2))
                 {
                     return true;
                 }
             }
         }
+
+        // Находятся ли все вершины полигона a внутри полигона b
+        bool isAInsideB = std::all_of(a.points.begin(), a.points.end(),
+            [&b](const Point& p) { return isPointInPolygon(b, p); });
+        if (isAInsideB)
+        {
+            return true;
+        }
+
+        // Находятся ли все вершины полигона b внутри полигона a
+        bool isBInsideA = std::all_of(b.points.begin(), b.points.end(),
+            [&a](const Point& p) { return isPointInPolygon(a, p); });
+        if (isBInsideA)
+        {
+            return true;
+        }
+
         return false;
     }
 }

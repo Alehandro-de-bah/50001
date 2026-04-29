@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
     }
 
     std::vector<Polygon> figures;
+
     readFiguresFromFile(file, figures);
     runCommandProcessing(std::cin, figures);
 

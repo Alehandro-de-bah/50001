@@ -11,6 +11,9 @@ namespace bahurov
     // Вычисление векторного произведения для векторов AB и AC
     int crossProduct(const Point& a, const Point& b, const Point& c);
 
+    // Содержит ли полигон точку (метод луча)
+    bool isPointInPolygon(const Polygon& polygon, const Point& point);
+
     // Лежит ли точка q на отрезке pr, если точки p, q, r коллинеарны
     bool isOnSegment(const Point& p, const Point& q, const Point& r);
 

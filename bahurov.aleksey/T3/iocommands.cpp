@@ -4,21 +4,22 @@ namespace bahurov
 {
     void readFiguresFromFile(std::ifstream& file, std::vector<Polygon>& figures)
     {
-        while (!file.eof())
         {
-            std::copy(
-                std::istream_iterator<Polygon>(file),
-                std::istream_iterator<Polygon>(),
-                std::back_inserter(figures)
-            );
-            if (!file.eof() && file.fail())
+            while (!file.eof())
             {
-                file.clear();
-                file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::copy(
+                    std::istream_iterator<Polygon>(file),
+                    std::istream_iterator<Polygon>(),
+                    std::back_inserter(figures)
+                );
+                if (!file.eof() && file.fail())
+                {
+                    file.clear();
+                }
             }
-        }
 
-        file.close();
+            file.close();
+        }
     }
 
     void runCommandProcessing(std::istream& in, std::vector<Polygon>& figures)

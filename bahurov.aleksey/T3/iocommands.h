@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iterator>
 #include <limits>
+#include <sstream>
 #include "commandHandlers.h"
 
 namespace bahurov

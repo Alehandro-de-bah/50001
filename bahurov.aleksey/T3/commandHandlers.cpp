@@ -258,7 +258,7 @@ namespace bahurov
     {
         Polygon target;
         in >> target;
-        if (in && target.points.size() >= 3)
+        if (in)
         {
             double targetArea = getArea(target);
             auto count = std::count_if(polygons.begin(), polygons.end(),
@@ -269,7 +269,6 @@ namespace bahurov
         {
             std::cout << INVALID_COMMAND << '\n';
             in.clear();
-            in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 
@@ -278,7 +277,7 @@ namespace bahurov
     {
         Polygon target;
         in >> target;
-        if (in && target.points.size() >= 3)
+        if (in)
         {
             auto count = std::count_if(polygons.begin(), polygons.end(),
                 [&target](const Polygon& p) { return arePolygonsIntersecting(p, target); });
@@ -288,7 +287,6 @@ namespace bahurov
         {
             std::cout << INVALID_COMMAND << '\n';
             in.clear();
-            in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 }

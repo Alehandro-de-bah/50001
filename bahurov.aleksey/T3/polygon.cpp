@@ -11,29 +11,37 @@ namespace bahurov
             return in;
         }
 
-        size_t vertexes = 0;
-        in >> vertexes;
+        std::string line;
+        if (!std::getline(in, line))
+        {
+            return in;
+        }
 
-        if (!in || vertexes < 3)
+        std::istringstream iss(line);
+        size_t vertexes = 0;
+
+        if (!(iss >> vertexes) || vertexes < 3)
         {
             in.setstate(std::ios::failbit);
             return in;
         }
 
         Polygon input;
-        std::generate_n(std::back_inserter(input.points), vertexes,
-            [&in]()
-            {
-                Point point;
-                in >> DelimetrIO{ ' ' } >> point;
-                return point;
-            }
-        );
+        Point point;
+        while (iss >> DelimetrIO{ ' ' } >> point)
+        {
+            input.points.push_back(std::move(point));
+        }
 
-        if (in && input.points.size() == vertexes)
+        if (input.points.size() != vertexes)
+        {
+            in.setstate(std::ios::failbit);
+        }
+        else
         {
             polygon = std::move(input);
         }
+
         return in;
     }
 }
