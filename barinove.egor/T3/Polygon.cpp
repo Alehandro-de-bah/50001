@@ -35,12 +35,9 @@ Polygon parsePolygon(const std::string& str) {
     std::istringstream iss(str);
     int n;
     iss >> n;
-    if (iss.fail()) {
-        throw std::runtime_error("Invalid format");
-    }
-    if (n < 3) {
-        throw std::runtime_error("Polygon must have at least 3 vertices");
-    }
+    if (iss.fail()) throw std::runtime_error("Invalid format");
+    if (n < 3) throw std::runtime_error("Polygon must have at least 3 vertices");
+
     Polygon p;
     std::generate_n(std::back_inserter(p.points), n, [&iss]() {
         char open, sep, close;
@@ -51,6 +48,11 @@ Polygon parsePolygon(const std::string& str) {
         }
         return Point{ x, y };
         });
+
+    char leftover;
+    if (iss >> leftover) {
+        throw std::runtime_error("Extra characters after polygon");
+    }
 
     return p;
 }
